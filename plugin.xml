@@ -17,7 +17,7 @@
 
     <!-- ios -->
     <platform name="ios">
-        <config-file target="config.xml" parent="/">
+        <config-file target="config.xml" parent="/*">
             <feature name="CardIOPGPlugin">
                 <param name="ios-package" value="CardIOPGPlugin"/>
                 <param name="onload" value="true" />
