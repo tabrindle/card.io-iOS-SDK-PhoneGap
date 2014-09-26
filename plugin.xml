@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
-        id="card_io-iOS-SDK-PhoneGap"
+        id="card.io"
         version="1.0.0">
 
     <name>CardIOPGPlugin</name>
 
     <description>
-        Card.IO Plugin for Steroids.js
+        Card.IO Phonegap Plugin
     </description>
 
     <asset src="www/CardIOPGPlugin.js" target="CardIOPGPlugin.js" />
 
     <engines>
-        <engine name="cordova" version=">=2.7.0" />
+        <engine name="cordova" version=">=3.0.0" />
     </engines>
-
-    <!-- android -->
-    <platform name="android">
-        <config-file target="res/xml/config.xml" parent="plugins">
-            <plugin name="CardIOPGPlugin" value="CardIOPGPlugin"/>
-        </config-file>
-
-        <source-file src="src/android/com/appgyver/plugin/card_io.java"
-                     target-dir="src/com/appgyver/plugin" />
-    </platform>
 
     <!-- ios -->
     <platform name="ios">
-        <config-file target="config.xml" parent="/*/plugins">
-            <plugin name="CardIOPGPlugin" value="CardIOPGPlugin" onload="true" />
-        </config-file>
-
-        <config-file target="config.xml" parent="/widget">
+        <config-file target="config.xml" parent="/">
             <feature name="CardIOPGPlugin">
                 <param name="ios-package" value="CardIOPGPlugin"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
 
+        <!-- Phonegap -->
         <header-file src="src/ios/CardIOPGPlugin.h" />
-
         <source-file src="src/ios/CardIOPGPlugin.m" />
+
+        <!-- sdk -->
+        <header-file src="src/ios/CardIO.h" />
+        <header-file src="src/ios/CardIOCreditCardInfo.h" />
+        <header-file src="src/ios/CardIOPaymentViewController.h" />
+        <header-file src="src/ios/CardIOPaymentViewControllerDelegate.h" />
+        <header-file src="src/ios/CardIOView.h" />
+        <header-file src="src/ios/CardIOViewDelegate.h" />
+
+        <source-file src="src/ios/libCardIO.a" framework="true"/>
 
     </platform>
 </plugin>
